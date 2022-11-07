@@ -1,0 +1,62 @@
+<h3>Ajouter Place</h3>
+<!--
+<div style="width:75%;margin:auto">
+    <form #addPlaceForm="ngForm">
+
+        <div class="form-group">
+            <label for="firstname">Numéro de place</label>
+            <input type="text" class="form-control" id="numPlace" placeholder="Num Place" required name="numPlace">
+
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Categories</label>
+            <input type="text" class="form-control" id="categorie" placeholder="categorie" required name="categorie">
+
+        </div>
+
+
+
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-dark">Retour</button>
+            <button type="button" class="btn btn-dark">Ajouter</button>
+        </div>
+    </form>
+</div>-->
+
+
+<div [hidden]="submitted">
+    <form #addPlaceForm="ngForm">
+
+        <div class="form-group">
+            <label for="firstname">Categories</label>
+            <input type="text" class="form-control" id="categories" placeholder="Username" required name="categories" [(ngModel)]="pl.categories" #categories="ngModel">
+            <div [hidden]="categories.valid || categories.pristine" class="alert alert-danger">
+                Saisir un categories
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Prénom</label>
+            <input type="text" class="form-control" id="numPlace" placeholder="LastName" required name="numPlace" [(ngModel)]="pl.numPlace" #numPlace="ngModel">
+            <div [hidden]="numPlace.valid || numPlace.pristine" class="alert alert-danger">
+                Saisir votre prénom
+            </div>
+        </div>
+
+
+
+        <div class="btn-group btn-group-sm">
+            <button type="button" class="btn btn-dark">Retour</button>
+            <button type="button" class="btn btn-dark" (click)="AjouTerPlace()" [disabled]="!addPlaceForm.form.valid">Ajouter</button>
+        </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <p>Soumis avec succès! <span class="badge badge-light"></span></p>
+    <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-dark">Retour</button>
+        <button type="button" class="btn btn-dark" (click)="newPlace()">Continue</button>
+    </div>
+</div>

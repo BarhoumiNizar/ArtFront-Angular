@@ -1,0 +1,41 @@
+<!--Recherche-->
+<div class="col-md-8" style="float:right">
+    <div class="input-group mb-3">
+        <input class="form-control" placeholder="Recherche " [(ngModel)]="recherche" />
+
+    </div>
+</div>
+<h1>NB={{count}}</h1>
+
+<table class="table table-bordered" *ngIf="places!=''">
+    <thead>
+        <tr>
+            <th scope=" col ">Id</th>
+            <th scope="col ">categories</th>
+            <th scope="col ">Num Place</th>
+            <th scope="col ">Supprimer</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pl of places | filter:recherche ">
+            <th scope="row ">{{ pl.id }}</th>
+            <td>{{ pl.categories }}</td>
+            <td>{{ pl.numPlace }}</td>
+            <td>
+                <span (click)="deletePlaceById([pl.id])" style="color:black ">Supprimer</span>
+            </td>
+
+
+        </tr>
+
+
+
+    </tbody>
+
+</table>
+
+<div *ngIf="!places ">
+    <br />
+    <p>Table Vide!!!!</p>
+</div>

@@ -1,0 +1,5 @@
+.menu{list-style: none;  width:80%;float: left; }
+.menu li {width: 20%; display: inline; }
+.menu li a {color: white; width: 25%; float: left;}
+.header{width:20%;float: left;}
+.toolbar{background:rgb(255, 102, 0) ; width:100%;float: left;}
